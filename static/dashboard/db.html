@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>إدارة</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&family=Source+Code+Pro:wght@200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="style/remixicon/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style/global.css" />
+    <link rel="stylesheet" href="./style/res.css" />
+  </head>
+  <body>
+    <div class="loading">
+      <div>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div class="title">
+      <div class="copyr">
+        <a href="https://www.instagram.com/dev_none/" target="_blank">
+          <span>n</span>
+          <span>o</span>
+          <span>n</span>
+          <span>e</span>
+        </a>
+      </div>
+      <h1>إدارة</h1>
+      <span class="import-btn"><i class="ri-braces-line"></i> استيراد</span>
+    </div>
+
+    <div class="all-boxs">
+      <div class="box-content name">
+        <h2>اسم الموقع</h2>
+        <input type="text" />
+      </div>
+      <div class="box-content links">
+        <h2>ازرار التواصل الأجتماعي</h2>
+        <div>
+          <h3>زر (اساسي)</h3>
+          <div class="child">
+            <div class="class-choose">
+              <label>ستايل</label>
+              <input
+                name="style-name"
+                type="text"
+                placeholder="ex : instagram"
+                value="instagram"
+              />
+              <div class="list-style d-noneDefult">
+                <p>instagram</p>
+                <p>twitter</p>
+                <p>whatsapp</p>
+                <p>facebook</p>
+              </div>
+            </div>
+            <div>
+              <label>الرابط</label>
+              <input
+                name="link"
+                type="text"
+                placeholder="ex : https://xxxx.xxx"
+                value="https://www.instagram.com/dev_none/"
+              />
+            </div>
+            <div>
+              <label>الايقونة</label>
+              <input
+                name="icon-class"
+                type="text"
+                placeholder="ex : ri-instagram-line"
+                value="ri-instagram-line"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="preview">
+      <h2>معاينة</h2>
+      <div class="preview-item">
+        <a
+          href="https://www.instagram.com/dev_none/"
+          class="instagram"
+          target="_blank"
+          ><i class="ri-instagram-line"></i
+        ></a>
+      </div>
+    </div>
+
+    <span class="add-link-btn"><i class="ri-add-line"></i> إضافة زر</span>
+    <span class="export-btn"><i class="ri-flashlight-fill"></i> تصدير</span>
+
+    <div class="export-pop">
+      <div>
+        <h3>تم التصدير</h3>
+        <span class="close-pop"><i class="ri-close-line"></i></span>
+        <br />
+        <div>
+          <p>قم بنسخ هذا الكود وضعه داخل ملف "settings.json".</p>
+          <textarea readonly></textarea>
+          <span class="copy-text">نسخ</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="import-pop">
+      <div>
+        <h3>إستيراد البيانات</h3>
+        <span class="close-pop"><i class="ri-close-line"></i></span>
+        <br />
+        <div>
+          <strong>تنبيه :</strong>
+          <p>
+            سوف يتم حذف البيانات الموجودة حاليا في الصفحة و استبدالها بهذه
+            البيانات
+          </p>
+          <textarea></textarea>
+          <div class="error">
+            <p>يوجد خطأ تحقق من البيانات المضافة, رسالة الخطأ :</p>
+            <p class="err"></p>
+          </div>
+          <span class="fromat-btn">معالجة</span>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+@media (max-width: 530px) {
+  .box-content .child {
+    display: block;
+  }
+  .box-content .child > div {
+    display: block;
+  }
+  .box-content .child .remove {
+    display: block;
+  }
+  .box-content .child .remove span {
+    width: 100%;
+  }
+  .export-pop > div,
+  .import-pop > div {
+    width: 90%;
+  }
+}
+
+@media (max-height: 500px) {
+  .export-pop,
+  .import-pop {
+    display: block;
+    padding: 10px 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .export-pop > div,
+  .import-pop > div {
+    margin: 0 auto;
+    height: 100%;
+    overflow: auto;
+  }
+}

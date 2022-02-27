@@ -1,0 +1,25 @@
+{
+  "name" : "محمد خالد",
+  "links" : [
+    {
+      "link" : "#",
+      "iconClass" : "ri-twitter-line",
+      "class" : "twitter"
+    },
+    {
+      "link" : "#",
+      "iconClass" : "ri-instagram-line",
+      "class" : "instagram"
+    },
+    {
+      "link" : "#",
+      "iconClass" : "ri-whatsapp-line",
+      "class" : "whatsapp"
+    },
+    {
+      "link" : "#",
+      "iconClass" : "ri-facebook-fill",
+      "class" : "facebook"
+    }
+  ]
+}
