@@ -1,33 +1,48 @@
 <template>
   <div>
+    <!-- === Loading Page Component === -->
     <loading-app></loading-app>
+    <!-- === End Loading Page Component === -->
+
+    <!-- === Background Page === -->
     <div class="backg-main">
-      <div id="particles-js">
-
-      </div>
+      <div id="particles-js"></div>
     </div>
-    <div class="main">
-      <div>
-        <div class="main-img">
-          <img src="profile.jpg" alt="profile img" />
-          <span class="anmite-img"></span>
-        </div>
-        <h1>راكان سعد</h1>
+    <!-- === End Background Page === -->
 
+    <!-- === Main === -->
+    <div class="main">
+      <!-- Center Box -->
+      <div>
+        <!-- Photo Profile -->
+        <div class="main-img">
+          <img src="photo/profile.jpg" alt="profile img" />
+
+          <!-- Animation -->
+          <span class="anmite-img"></span>
+          <!-- End Animation -->
+        </div>
+        <!-- End Photo Profile -->
+
+        <!-- Headline -->
+        <h1>Profile</h1>
+        <!-- End Headline -->
+
+        <!-- Button Show Links -->
         <div class="tolinks">
           <i class="ri-arrow-down-line"></i>
           <span class="click-anime"></span>
         </div>
+        <!-- End Button Show Links -->
       </div>
+      <!-- End Center Box -->
 
-                <div class="link">
-            <!-- <a href="#" class="twitter" target="_blank"><i class="ri-twitter-line"></i></a>
-            <a href="#" class="instagram" target="_blank"><i class="ri-instagram-line"></i></a>
-            <a href="#" class="whatsapp" target="_blank"><i class="ri-whatsapp-line"></i></a>
-            <a href="#" class="facebook" target="_blank"><i class="ri-facebook-fill"></i></a> -->
-          </div>
+      <!-- Social Media Links -->
+      <div class="link"></div>
+      <!-- End Social Media Links -->
 
-    <div class="copyr">
+      <!-- My Rights -->
+      <div class="copyr">
         <a href="https://www.instagram.com/dev_none/" target="_blank">
           <span>n</span>
           <span>o</span>
@@ -35,7 +50,9 @@
           <span>e</span>
         </a>
       </div>
+      <!-- End My Rights -->
     </div>
+    <!-- === End Main === -->
   </div>
 </template>
 
@@ -43,124 +60,92 @@
 import $ from 'jquery/dist/jquery.min.js';
 import axios from 'axios';
 
-// import particlesJS from "particles.js/particles.js";
-// import jsonPartcle from "@/assets/particles.json";
 export default {
-  mounted() {
-require("particles.js/particles.js")
-
-
- // eslint-disable-next-line no-undef
-//  console.log(particlesJS)
-//  particlesJS.load()
-//  new  ParticlesJS('particles-js', '@/assets/particles.json', function() {
-//   console.log('callback - particles-js config loaded');
-// })
-//   const particlesJS = require("particles.js");
-//       //  console.log(particlesJS)
+  async mounted() {
+    // fetch library particles.js
+    require('particles.js/particles.js');
     // eslint-disable-next-line no-undef
-    particlesJS.load('particles-js', "/assets/particles.json");
+    particlesJS.load('particles-js', '/assets/particles.json');
 
- axios.get('settings.json').then((rel) => {
-   $("title").text(rel.data.name)
-   $("h1").text(rel.data.name)
-      for (let ele = 0; ele < rel.data.links.length; ele++) {
+    // Get Data Page From settings.json
+    await axios.get('settings.json').then((res) => {
+      // Set Data In Page
+      $('title').text(res.data.name);
+      $('h1').text(res.data.name);
+      for (let ele = 0; ele < res.data.links.length; ele++) {
         $('.link').append(
-          `<a href="${rel.data.links[ele].link}" class="${rel.data.links[ele].class}" target="_blank"><i class="${rel.data.links[ele].iconClass}"></i></a>`
-        )
-        if (ele === rel.data.links.length - 1) {
-         startPage()
+          `<a href="${res.data.links[ele].link}" class="${res.data.links[ele].class}" target="_blank"><i class="${res.data.links[ele].iconClass}"></i></a>`
+        );
+        if (ele === res.data.links.length - 1) {
+          startPage();
         }
       }
+    });
 
- })
+    // After data is placed on page
+    function startPage() {
+      let buttonStatus = true;
 
- function startPage() {
- let buttonStatus = true;
-    $('.tolinks').on('click', function () {
+      // Button Show Links Animation (Go - Back)
+      $('.tolinks').on('click', function () {
+        const mylength = $('.link a').length - 1;
+        let myLengthNow = 0;
 
-    const mylength = $('.link a').length - 1;
-    let myLengthNow = 0;
-
-      if (buttonStatus === true) {
-
-              const mylink =  $(".link");
-      setTimeout(function() {
-       mylink.toggleClass("link-active");
-      },500)
-        $('.tolinks>i').toggleClass('ri-arrow-down-line ri-close-line')
-        if ($('.tolinks>i').hasClass('active-icon') === true) {
-          $('.tolinks>i').addClass('back-active-icon')
-          //  $('.link a').removeClass('active-a')
-
-
-        //  const myLengthNow = 0
-
-          const myInterval = setInterval(function () {
-            $('.link a').eq(myLengthNow).removeClass('active-a')
-            if (myLengthNow === mylength) {
-              clearInterval(myInterval)
-              $('.click-anime').parent().removeClass('active-anmie-span')
-              setTimeout(function () {
-                              $('.main-img').removeClass('active-img')
-              $('h1').removeClass('active-h1')
-              },500)
-              // buttonStatus = true;
-              setTimeout(function () {
-                $('.tolinks>i').removeClass('active-icon  back-active-icon')
-                buttonStatus = true
-              }, 1000)
-            }
-            myLengthNow++
-          }, 100)
-        } else {
-          $('.click-anime').parent().addClass('active-anmie-span')
-          $('.main-img').addClass('active-img')
-          $('h1').addClass('active-h1')
-          $('.tolinks>i').addClass('active-icon')
-
-
+        if (buttonStatus === true) {
+          const mylink = $('.link');
           setTimeout(function () {
+            mylink.toggleClass('link-active');
+          }, 500);
+          $('.tolinks>i').toggleClass('ri-arrow-down-line ri-close-line');
+          if ($('.tolinks>i').hasClass('active-icon') === true) {
+            $('.tolinks>i').addClass('back-active-icon');
+
             const myInterval = setInterval(function () {
-              $('.link a').eq(myLengthNow).addClass('active-a')
+              $('.link a').eq(myLengthNow).removeClass('active-a');
               if (myLengthNow === mylength) {
-                clearInterval(myInterval)
-                buttonStatus = true
+                clearInterval(myInterval);
+                $('.click-anime').parent().removeClass('active-anmie-span');
+                setTimeout(function () {
+                  $('.main-img').removeClass('active-img');
+                  $('h1').removeClass('active-h1');
+                }, 500);
+
+                setTimeout(function () {
+                  $('.tolinks>i').removeClass('active-icon  back-active-icon');
+                  buttonStatus = true;
+                }, 1000);
               }
-              myLengthNow++
-            }, 100)
-          }, 500)
+              myLengthNow++;
+            }, 100);
+          } else {
+            $('.click-anime').parent().addClass('active-anmie-span');
+            $('.main-img').addClass('active-img');
+            $('h1').addClass('active-h1');
+            $('.tolinks>i').addClass('active-icon');
+
+            setTimeout(function () {
+              const myInterval = setInterval(function () {
+                $('.link a').eq(myLengthNow).addClass('active-a');
+                if (myLengthNow === mylength) {
+                  clearInterval(myInterval);
+                  buttonStatus = true;
+                }
+                myLengthNow++;
+              }, 100);
+            }, 500);
+          }
         }
+        buttonStatus = false;
+      });
 
-        // setTimeout(function () {
-        //   buttonStatus = true
-        // }, 1000)
-      }
-      buttonStatus = false
-
-
-// $(document).on("click", function () {
-//   console.log(buttonStatus)
-// })
-    })
-
-
-    setTimeout(function() {
-     $(".loading").addClass("load");
-     setTimeout(function() {
-        $(".loading").remove();
-     },500)
-    },500)
- }
-
-    // function $(ele) {
-    //   return document.querySelector(ele);
-    // }
-
-    // document.querySelector("video").play()
-    // console.log(document.querySelector("video"))
+      // Remove Loading Box On Load Page
+      setTimeout(function () {
+        $('.loading').addClass('load');
+        setTimeout(function () {
+          $('.loading').remove();
+        }, 500);
+      }, 500);
+    }
   },
-}
-
+};
 </script>
-

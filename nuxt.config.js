@@ -6,34 +6,40 @@ export default {
   head: {
     title: 'Profile',
     htmlAttrs: {
-      lang: 'ar'
+      lang: 'ar',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Profile' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [
       { rel: 'icon', href: '/favicon.svg' },
-      { rel: 'apple-touch-icon', href: '/favicon.png' },
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet' },
-      { rel: 'stylesheet', href: 'assets/custom.css' }
-    ]
+      { rel: 'apple-touch-icon', href: 'photo/favicon.png' },
+      { rel: 'icon', type: 'image/x-icon', href: 'photo/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet',
+      },
+      { rel: 'stylesheet', href: 'assets/custom.css' },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    "@/assets/License.css",
-    "@/assets/css/global.css",
-    "remixicon/fonts/remixicon.css",
-    "@/assets/css/res.css"
+    // License CSS
+    '@/assets/License.css',
+    // Global Styles
+    '@/assets/css/global.scss',
+    // icon
+    'remixicon/fonts/remixicon.css',
+    // Responsive Style
+    '@/assets/css/res.scss',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
+  plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -59,9 +65,10 @@ export default {
       extractComments: false,
       terserOptions: {
         output: {
-          comments: /^\**!|@preserve|@license|@cc_on|license|Copyright|LICENSE|copyright|^\*!/
-        }
-      }
-    }
-  }
-}
+          comments:
+            /^\**!|@preserve|@license|@cc_on|license|Copyright|LICENSE|copyright|^\*!/,
+        },
+      },
+    },
+  },
+};

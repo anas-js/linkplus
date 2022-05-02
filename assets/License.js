@@ -1,5 +1,5 @@
 /*!
-License
+License Js
  ---------------------------------------------------
  * core-js 3.15.1
  * Copyright (c) 2014-2021 Denis Pushkarev

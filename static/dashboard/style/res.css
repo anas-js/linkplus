@@ -1,3 +1,4 @@
+/* === Responsive Design File === */
 @media (max-width: 530px) {
   .box-content .child {
     display: block;
@@ -17,18 +18,27 @@
   }
 }
 
-@media (max-height: 500px) {
+@media (max-width: 440px) {
+  .import-btn {
+    margin-top: 20px;
+    display: block;
+    -webkit-transform: none;
+            transform: none;
+    text-align: center;
+    position: static;
+  }
+}
+
+@media (max-height: 700px) {
   .export-pop,
   .import-pop {
-    display: block;
-    padding: 10px 0;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
+    overflow-y: auto;
   }
   .export-pop > div,
   .import-pop > div {
-    margin: 0 auto;
-    height: 100%;
-    overflow: auto;
+    margin: 20px 0;
   }
 }

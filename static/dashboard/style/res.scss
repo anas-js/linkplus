@@ -1,3 +1,4 @@
+/* === Responsive Design File === */
 @media (max-width: 530px) {
   .box-content {
     .child {
@@ -23,17 +24,24 @@
   }
 }
 
-@media (max-height: 500px) {
+@media (max-width: 440px) {
+  .import-btn {
+    margin-top: 20px;
+    display: block;
+    transform: none;
+    text-align: center;
+    position: static;
+  }
+}
+
+@media (max-height: 700px) {
   .export-pop,
   .import-pop {
-    display: block;
-    padding: 10px 0;
-    box-sizing: border-box;
+    align-items: start;
+    overflow-y: auto;
 
     > div {
-      margin: 0 auto;
-      height: 100%;
-      overflow: auto;
+      margin: 20px 0;
     }
   }
 }

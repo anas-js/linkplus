@@ -1,30 +1,50 @@
+// Global Style
 * {
   padding: 0;
   margin: 0;
 }
 
+// Scrollbar
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+// Track
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+// Handle
+::-webkit-scrollbar-thumb {
+  background: rgb(209, 209, 209);
+  border-radius: 50px;
+}
+
+// Body Style
 body {
   font-family: 'IBM Plex Sans Arabic';
   direction: rtl;
 }
-video{
+
+// Background Page Style
+.backg-main {
   position: fixed;
   z-index: -1;
-  // left: 50%;
-  // top: 50%;
-  // transform: translate(-50%,-50%);
   left: 0;
   bottom: 0;
   width: 100%;
-  /* height: 100%; */
+  height: 100%;
+  background-image: linear-gradient(
+    120deg,
+    #0b1e5d,
+    #892b93,
+    #d6125b,
+    #ff7f0e,
+    #ffce37
+  );
 }
 
-.backg-main {
-  @extend video;
-  height: 100%;
-  // background-image: linear-gradient(160deg, #0e0024,#3a007a, #cb00da);
-  background-image: linear-gradient(120deg, #0b1e5d, #892b93, #d6125b, #ff7f0e, #ffce37)
-}
+// Main
 .main {
   position: fixed;
   left: 0;
@@ -36,11 +56,11 @@ video{
   align-items: center;
   overflow: hidden;
 
-  >div:first-of-type {
-    margin:10px;
+  > div:first-of-type {
+    margin: 10px;
   }
 
-
+  // Profile Photo Style
   .main-img {
     position: relative;
     transition: 0.5s ease;
@@ -57,7 +77,6 @@ video{
       position: absolute;
       width: 100%;
       height: 100%;
-      // background-color: #fff;
       z-index: -1;
       left: 0;
       top: 0;
@@ -80,6 +99,8 @@ video{
       }
     }
   }
+
+  // Headline
   h1 {
     color: #fff;
     text-align: center;
@@ -93,6 +114,7 @@ video{
     margin-top: 5px;
   }
 
+  // Button Show/Hide Link
   .tolinks {
     background-color: #fff;
     color: #000;
@@ -106,8 +128,8 @@ video{
     margin-top: 30px;
     border-radius: 20px;
     cursor: pointer;
-    // position: relative;
 
+    // Circular background White animation
     .click-anime {
       position: fixed;
       width: 100%;
@@ -127,19 +149,16 @@ video{
     }
   }
 
+  // Show Circular background White
   .active-anmie-span {
     span {
-    // transform: scale(10);
-    // transition: 0.5s;
-    clip-path: circle(100%) !important;
-    border-radius: 0 !important;
-    pointer-events: none;
+      clip-path: circle(100%) !important;
+      border-radius: 0 !important;
+      pointer-events: none;
     }
   }
-  // .active-anmie-span span {
 
-  // }
-
+  // Button (For Show Link) icon Go animation
   .active-icon {
     animation: anmite-icon 1s forwards;
     @keyframes anmite-icon {
@@ -156,6 +175,7 @@ video{
     }
   }
 
+  // Button (For Show Link) icon Back animation
   .back-active-icon {
     animation: anmite-icon2 1s forwards !important;
     @keyframes anmite-icon2 {
@@ -172,38 +192,24 @@ video{
     }
   }
 }
-// .active-anmie-click {
-//   position: static !important;
-//   transition: 0.3s;
-// }
-// video {
-//   position: fixed;
-//   z-index: -1;
-//   left: 50%;
-//   transform: translateX(-50%);
-//   top: 0;
-//   /* width: 100%; */
-//   height: 100%;
-// }
 
-@mixin anmiteTob($top) {
+// Animation to move up and disappear
+@mixin animationMoveTop($top) {
   top: $top !important;
   transition: 0.5s ease;
   opacity: 0;
 }
 
-
 .active-img {
-  @include anmiteTob(-50px)
+  @include animationMoveTop(-50px);
 }
 
 .active-h1 {
-  @include anmiteTob(-100px)
+  @include animationMoveTop(-100px);
 }
 
-
+// Links Button Style
 .link {
-  // padding-bottom: 20px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -223,7 +229,7 @@ video{
     border-radius: 20px;
     padding: 15px;
     text-decoration: none;
-    margin:15px;
+    margin: 15px;
     position: relative;
     top: 40px;
     opacity: 0;
@@ -251,69 +257,57 @@ video{
     &:hover::before {
       left: 100%;
       transition: 0.2s ease;
-      // top: 100%;
-      // transition: 0.5s ease;
     }
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
-      // transform: scaleX(1.5);
       left: -100%;
       width: 100%;
       height: 100%;
-      background-image: linear-gradient(120deg,transparent, #fff, transparent);
+      background-image: linear-gradient(120deg, transparent, #fff, transparent);
       transition: 0.2s ease;
     }
   }
 
+  // Links Social Media Style
   .twitter {
-      background-color: #00acee;
+    background-color: #00acee;
   }
 
   .instagram {
-    background-image: linear-gradient(120deg,#002296,#82008f,#ea0c5f,#ff8820,#f6ba00);
+    background-image: linear-gradient(
+      120deg,
+      #002296,
+      #82008f,
+      #ea0c5f,
+      #ff8820,
+      #f6ba00
+    );
+  }
+
+  .whatsapp {
+    background-color: #25d366;
+  }
+
+  .facebook {
+    background-color: #3b5998;
+  }
 }
 
-.whatsapp {
-  background-color: #25d366
-}
-
-.facebook {
-  background-color: #3b5998;
-}
-}
-
-
+// Backgroun particles Style
 #particles-js {
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
 
-
-::-webkit-scrollbar {
-  width: 2px;
-
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: rgb(209, 209, 209);
-  border-radius: 50px;
-}
-
 .link-active {
   visibility: visible !important;
 }
 
+// Loading Page Style
 .loading {
   display: flex;
   justify-content: center;
@@ -324,7 +318,14 @@ video{
   width: 100%;
   height: 100%;
   z-index: 100;
-  background-image: linear-gradient(120deg, #0b1e5d, #892b93, #d6125b, #ff7f0e, #ffce37);
+  background-image: linear-gradient(
+    120deg,
+    #0b1e5d,
+    #892b93,
+    #d6125b,
+    #ff7f0e,
+    #ffce37
+  );
   transition: 0.4s;
 
   div {
@@ -350,23 +351,24 @@ video{
     animation: loading 0.5s infinite ease 0.2s;
   }
 
-
   span:nth-of-type(3) {
     animation: loading 0.5s infinite ease 0.3s;
   }
   @keyframes loading {
-    50%{height: 1px;}
-    100%{height: 80px;}
+    50% {
+      height: 1px;
+    }
+    100% {
+      height: 80px;
+    }
   }
-
 }
 
-
+// On Load Page Style
 .load {
   opacity: 0;
   visibility: hidden;
   transition: 0.4s;
-
 
   div {
     position: relative;
@@ -376,6 +378,7 @@ video{
   }
 }
 
+// My Rights Style
 .copyr {
   position: fixed;
   left: 20px;
@@ -392,13 +395,12 @@ video{
 
     &:hover {
       span {
-        $number :0;
+        $number: 0;
         @for $i from 1 through 4 {
-
           &:nth-of-type(#{$i}) {
-            animation: gotop 1s infinite #{$number}s ease;
+            animation: animationLoading 1s infinite #{$number}s ease;
           }
-          $number :0.2 + $number;
+          $number: 0.2 + $number;
         }
       }
     }
@@ -414,7 +416,7 @@ video{
   }
 }
 
-@keyframes gotop {
+@keyframes animationLoading {
   0% {
     transform: scale(1.2);
   }
@@ -430,5 +432,5 @@ video{
 }
 
 .loading404 {
-@extend .loading;
+  @extend .loading;
 }
