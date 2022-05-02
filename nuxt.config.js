@@ -31,11 +31,11 @@ export default {
     // License CSS
     '@/assets/License.css',
     // Global Styles
-    '@/assets/css/global.scss',
+    '@/assets/scss/global.scss',
     // icon
     'remixicon/fonts/remixicon.css',
     // Responsive Style
-    '@/assets/css/res.scss',
+    '@/assets/scss/res.scss',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
