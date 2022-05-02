@@ -15,7 +15,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [
-      { rel: 'icon', href: '/favicon.svg' },
+      { rel: 'icon', href: 'photo/favicon.svg' },
       { rel: 'apple-touch-icon', href: 'photo/favicon.png' },
       { rel: 'icon', type: 'image/x-icon', href: 'photo/favicon.ico' },
       {
